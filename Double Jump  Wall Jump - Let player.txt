@@ -1,0 +1,4 @@
+Breakable Brick Blocks - Bricks that break when hit from below (when powered)
+Spring/Bounce Pads - Launch player high into the air
+Boss Fights - End-of-world boss enemies
+Animated Water/Lava - Hazard tiles that damage the player
