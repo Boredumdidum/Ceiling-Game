@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Platform Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="ui">
+            <div id="score">Score: <span id="score-value">0</span></div>
+            <div id="coins">Coins: <span id="coins-value">0</span></div>
+            <div id="level">Level: <span id="level-value">1</span></div>
+            <div id="lives">Lives: <span id="lives-value">3</span></div>
+            <div id="best">Best: <span id="best-value">0</span></div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div id="start-screen">
+            <div id="start-screen-inner">
+                <div id="high-scores" class="high-scores">
+                    <h2>High Scores</h2>
+                    <ol id="high-score-list"></ol>
+                </div>
+                <div id="start-screen-center">
+                    <h1>Super Platform Adventure</h1>
+                    <p>Arrow Keys or WASD to move</p>
+                    <p>Space or Up Arrow to jump</p>
+                    <p>Wall Jump off walls! Hold S to grab Koopa shells!</p>
+                    <p>F or E to shoot fireballs (with Fire Flower)</p>
+                    <p>Jump on enemies - Kick Koopa shells!</p>
+                    <p>Try pressing S on pipes... some hide secrets!</p>
+                    <div class="button-group">
+                        <button id="start-btn">Start at Level 1</button>
+                        <button id="start-level2-btn">Start at Level 2</button>
+                        <button id="start-level3-btn">Start at Level 3</button>
+                        <button id="start-endless-btn">Endless Mode (Level 4+)</button>
+                        <button id="shop-btn">Coin Shop</button>
+                    </div>
+                </div>
+            </div>
+            <div id="dev-mode-area">
+                <input type="password" id="dev-mode-input" placeholder="Enter code..." maxlength="4" autocomplete="off">
+                <span id="dev-mode-status">🔒 Dev Mode Locked</span>
+            </div>
+            <div id="dev-menu" class="hidden">
+                <div id="dev-menu-header">
+                    <span>🛠️ Dev Menu</span>
+                    <button id="dev-menu-close" class="dev-menu-close">✕</button>
+                </div>
+                <div class="dev-menu-section">
+                    <h3>Start at Level</h3>
+                        <div class="dev-menu-row">
+                            <button class="dev-btn" id="dev-play-btn">Play</button>
+                        </div>
+                </div>
+                <div class="dev-menu-section">
+                    <h3>God Mode</h3>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="dev-god-toggle">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label" id="god-toggle-label">Off</span>
+                    </label>
+                </div>
+                <div class="dev-menu-section">
+                    <h3>Resets</h3>
+                    <div class="dev-menu-row">
+                        <button class="dev-btn dev-btn-danger" id="dev-reset-scores">Reset High Scores</button>
+                        <button class="dev-btn dev-btn-danger" id="dev-reset-shop">Reset Shop</button>
+                        <button class="dev-btn dev-btn-danger-full" id="dev-reset-all">Full Game Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="game-over-screen" class="hidden">
+            <h1>Game Over</h1>
+            <p>Final Score: <span id="final-score">0</span></p>
+            <p id="game-over-high-score" class="high-score-msg hidden"></p>
+            <div class="button-group">
+                <button id="restart-btn">Play Again</button>
+                <button id="menu-btn">Main Menu</button>
+            </div>
+        </div>
+        <div id="win-screen" class="hidden">
+            <h1>You Win!</h1>
+            <p>Final Score: <span id="win-score">0</span></p>
+            <p id="win-high-score" class="high-score-msg hidden"></p>
+            <div class="button-group">
+                <button id="win-restart-btn">Play Again</button>
+                <button id="win-menu-btn">Main Menu</button>
+            </div>
+        </div>
+        <div id="shop-screen" class="hidden">
+            <h1>Coin Shop</h1>
+            <p class="shop-wallet">Wallet: <span id="shop-wallet-value">0</span> coins</p>
+            <div id="shop-tabs">
+                <button class="shop-tab active" data-tab="skins">Skins</button>
+                <button class="shop-tab" data-tab="abilities">Abilities</button>
+            </div>
+            <div id="shop-items-skins" class="shop-items"></div>
+            <div id="shop-items-abilities" class="shop-items hidden"></div>
+            <button id="shop-back-btn">Back to Menu</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
